@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+
+// Import of our AddItem and List component
 import AddItem from './AddItem';
 import List from './List';
 
 // This is the main component handling state and is a class component
 export default class ToDoApp extends Component {
 
-  // Initialise the state with an empty array of items
+  // Initialise the state with an empty items array
   state = {
     items: []
   };
 
-  // Function which takes an event and item and concatenates the item to the state items array
+  // Handler function which takes an event and item and concatenates the item to the state items array
   handleAddItem = (event, item) => {
     event.preventDefault();
     console.log(item);
@@ -19,7 +21,7 @@ export default class ToDoApp extends Component {
     });
   };
 
-  // Function which filters out 
+  // Function which filters out the chosen item and deletes it from the state items array
   deleteItem = index => {
     this.setState({
       items: this.state.items.filter((item, i) => {
@@ -28,6 +30,7 @@ export default class ToDoApp extends Component {
     });
   };
 
+  // Render method of AddItem and List from imported components at top
   render() {
     console.log(this.state.items);
     return (
